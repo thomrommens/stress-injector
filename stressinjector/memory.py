@@ -111,7 +111,6 @@ class MemoryStress:
             import resource
             return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1e+3
         if settings.os == operating_system.windows:
-            import psutil
             return psutil.Process(settings.pid).memory_info().peak_wset
 
     def _run(self) -> None:
